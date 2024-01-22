@@ -32,3 +32,5 @@ class Employee {
         return employeeRole;
     }
 }
+
+module.exports = Employee;
