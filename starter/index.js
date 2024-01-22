@@ -133,7 +133,7 @@ function engineerProfile() {
             Object.keys(response).length === engineerQuestions.length ? console.log('Success') : console.log('You forgot to complete some sections!');
 
             const { engineername, engineerid, email, githubusername} = response;
-            const engineer = new Intern(engineername, engineerid, email, githubusername)
+            const engineer = new Engineer(engineername, engineerid, email, githubusername)
             employeeObject.push(engineer);
         
     })
@@ -144,6 +144,11 @@ function internProfile() {
     inquirer
         .prompt(internQuestions)
         .then((response) => {
+            Object.keys(response).length === internQuestions.length ? console.log('Success') : console.log('You forgot to complete some sections!');
+
+            const { internname, internid, email, school} = response;
+            const intern = new Intern(internname, internid, email, school)
+            employeeObject.push(intern);
         
     })
 }
