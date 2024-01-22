@@ -16,6 +16,7 @@ const render = require("./src/page-template.js");
 // Employee object array varaible initialized
 const employeeObject = [];
 
+// Inquirer prompt questions for Manager profile
 const managerQuestions = [
     {
         type: 'input',
@@ -46,6 +47,7 @@ const managerQuestions = [
    
 ];
 
+// Inquirer prompt questions for Engineer profile
 const engineerQuestions = [
     {
         type: 'input',
@@ -69,6 +71,7 @@ const engineerQuestions = [
     },
 ]
 
+// Inquirer prompt questions for Intern profile
 const internQuestions = [
     {
         type: 'input',
@@ -127,6 +130,11 @@ function engineerProfile() {
     inquirer
         .prompt(engineerQuestions)
         .then((response) => {
+            Object.keys(response).length === engineerQuestions.length ? console.log('Success') : console.log('You forgot to complete some sections!');
+
+            const { engineername, engineerid, email, githubusername} = response;
+            const engineer = new Intern(engineername, engineerid, email, githubusername)
+            employeeObject.push(engineer);
         
     })
 }
