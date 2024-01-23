@@ -2,15 +2,7 @@
 
 class Employee {    
     constructor(name, id, email) {
-        if (!name || typeof name !== "string") { 
-            throw new Error("You are missing the name.");
-        }
-        if (!id) { 
-            throw new Error("You are missing the number.");
-        }
-        if (!email || !email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) { 
-            throw new Error("Please provide a correct email address.");
-        }
+       
         this.name = name;
         this.id = id;
         this.email = email;
