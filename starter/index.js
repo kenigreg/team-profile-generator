@@ -119,7 +119,10 @@ function managerProfile() {
             } else if (response.role === "Add an intern") {
                 internProfile();
             } else {
-                
+                if(employeeObject.length !== 0){
+                    const myAnswer = render(employeeObject);
+                    writeToFile('team.html', myAnswer);
+                }
             }
             
         })
@@ -135,6 +138,11 @@ function engineerProfile() {
             const { engineername, engineerid, email, githubusername} = response;
             const engineer = new Engineer(engineername, engineerid, email, githubusername)
             employeeObject.push(engineer);
+
+                if(employeeObject.length !== 0){
+                    const myAnswer = render(employeeObject);
+                    writeToFile('team.html', myAnswer);
+                }
         
     })
 }
@@ -149,6 +157,11 @@ function internProfile() {
             const { internname, internid, email, school} = response;
             const intern = new Intern(internname, internid, email, school)
             employeeObject.push(intern);
+
+            if(employeeObject.length !== 0){
+                const myAnswer = render(employeeObject);
+                writeToFile('team.html', myAnswer);
+            }
         
     })
 }
