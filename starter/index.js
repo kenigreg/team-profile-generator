@@ -184,7 +184,7 @@ function managerProfile() {
             } else {
                 if(employeeObject.length !== 0){
                     const myAnswer = render(employeeObject);
-                    writeToFile('team.html', myAnswer);
+                    writeToFile(outputPath, myAnswer);
                 }
             }
             
@@ -204,7 +204,7 @@ function engineerProfile() {
 
                 if(employeeObject.length !== 0){
                     const myAnswer = render(employeeObject);
-                    writeToFile('team.html', myAnswer);
+                    writeToFile(outputPath, myAnswer);
                 }
         
     })
@@ -223,7 +223,7 @@ function internProfile() {
 
             if(employeeObject.length !== 0){
                 const myAnswer = render(employeeObject);
-                writeToFile('team.html', myAnswer);
+                writeToFile(outputPath, myAnswer);
             }
         
     })
