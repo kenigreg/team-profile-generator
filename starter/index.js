@@ -64,14 +64,19 @@ const managerQuestions = [
             return 'Please enter a valid office number';
           },
     },
+
+];
+
+// Menu prompt questions for Team profiles
+const menuQuestions = [
     {
         type: 'list',
         message: 'Please select an option?',
         name: 'role',
         choices: ["Add an engineer", "Add an intern", "Finish building the team"],
     },
-   
 ];
+
 
 // Inquirer prompt questions for Engineer profile
 const engineerQuestions = [
@@ -165,17 +170,11 @@ function writeToFile(fileName, data) {
    
 }
 
-// function to implement Manager profile
-function managerProfile() {
+//function to implement menu
+function menu() {
     inquirer
-        .prompt(managerQuestions)
+        .prompt(menuQuestions)
         .then((response) => {
-            Object.keys(response).length === managerQuestions.length ? console.log('Success') : console.log('You forgot to complete some sections!');
-
-            const { employeename, employeeid, email, officenumber} = response;
-            const manager = new Manager(employeename, employeeid, email, officenumber)
-            employeeObject.push(manager);
-            console.log(response.role);
 
             if (response.role === "Add an engineer") {
                 engineerProfile();
@@ -191,6 +190,23 @@ function managerProfile() {
         })
 }
 
+
+// function to implement Manager profile
+function managerProfile() {
+    inquirer
+        .prompt(managerQuestions)
+        .then((response) => {
+            Object.keys(response).length === managerQuestions.length ? console.log('Success') : console.log('You forgot to complete some sections!');
+
+            const { employeename, employeeid, email, officenumber} = response;
+            const manager = new Manager(employeename, employeeid, email, officenumber)
+            employeeObject.push(manager);
+
+            menu();
+            
+        })
+}
+
 // function to implement Engineer profile
 function engineerProfile() {
     inquirer
@@ -202,10 +218,7 @@ function engineerProfile() {
             const engineer = new Engineer(engineername, engineerid, email, githubusername)
             employeeObject.push(engineer);
 
-                if(employeeObject.length !== 0){
-                    const myAnswer = render(employeeObject);
-                    writeToFile(outputPath, myAnswer);
-                }
+            menu();
         
     })
 }
@@ -221,11 +234,8 @@ function internProfile() {
             const intern = new Intern(internname, internid, email, school)
             employeeObject.push(intern);
 
-            if(employeeObject.length !== 0){
-                const myAnswer = render(employeeObject);
-                writeToFile(outputPath, myAnswer);
-            }
-        
+            menu();
+
     })
 }
 
