@@ -27,16 +27,42 @@ const managerQuestions = [
         type: 'input',
         message: 'What is the Employee ID?',
         name: 'employeeid',
+        validate(value) {
+            const pass = value.match(/^[0-9]*$/);
+            if (pass) {
+              return true;
+            }
+      
+            return 'Please enter a valid number for Employee ID';
+          },
     },
     {
         type: 'input',
         message: 'What is the Employee email address?',
         name: 'email',
+        validate(value) {
+            const pass = value.match(
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            );
+            if (pass) {
+              return true;
+            }
+      
+            return 'Please enter a valid email address';
+          },
     },
     {
         type: 'input',
         message: 'What is the Office number?',
         name: 'officenumber',
+        validate(value) {
+            const pass = value.match(/^[0-9]*$/);
+            if (pass) {
+              return true;
+            }
+      
+            return 'Please enter a valid office number';
+          },
     },
     {
         type: 'list',
@@ -58,11 +84,29 @@ const engineerQuestions = [
         type: 'input',
         message: "What is the Engineer's ID?",
         name: 'engineerid',
+        validate(value) {
+            const pass = value.match(/^[0-9]*$/);
+            if (pass) {
+              return true;
+            }
+      
+            return 'Please enter a valid number for Engineer ID';
+          },
     },
     {
         type: 'input',
         message: "What is the Engineer's email address?",
         name: 'email',
+        validate(value) {
+            const pass = value.match(
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            );
+            if (pass) {
+              return true;
+            }
+      
+            return 'Please enter a valid email address';
+          },
     },
     {
         type: 'input',
@@ -82,11 +126,29 @@ const internQuestions = [
         type: 'input',
         message: "What is the Intern's ID?",
         name: 'internid',
+        validate(value) {
+            const pass = value.match(/^[0-9]*$/);
+            if (pass) {
+              return true;
+            }
+      
+            return 'Please enter a valid number for Intern ID';
+          },
     },
     {
         type: 'input',
         message: "What is the Intern's email address?",
         name: 'email',
+        validate(value) {
+            const pass = value.match(
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            );
+            if (pass) {
+              return true;
+            }
+      
+            return 'Please enter a valid email address';
+          },
     },
     {
         type: 'input',
