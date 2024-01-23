@@ -2,8 +2,8 @@
 const Employee = require("./Employee");
 
 class Manager extends Employee {
-    constructor(officeNumber) {
-        if (!officeNumber || typeof officeNumber !== "number") { 
+    constructor(name, id, email, officeNumber) {
+        if (!officeNumber) { 
             throw new Error("You are missing the office number.");
         }
         super(name, id, email);

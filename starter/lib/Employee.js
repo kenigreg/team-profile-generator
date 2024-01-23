@@ -5,7 +5,7 @@ class Employee {
         if (!name || typeof name !== "string") { 
             throw new Error("You are missing the name.");
         }
-        if (!id || typeof id !== "number") { 
+        if (!id) { 
             throw new Error("You are missing the number.");
         }
         if (!email || !email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) { 

@@ -2,7 +2,7 @@
 const Employee = require("./Employee");
 
 class Intern extends Employee {
-    constructor(school) {
+    constructor(name, id, email, school) {
         if (!school || typeof school !== "string") { 
             throw new Error("You are missing the school name.");
         }

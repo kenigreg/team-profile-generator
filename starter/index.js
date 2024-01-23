@@ -113,6 +113,7 @@ function managerProfile() {
             const { employeename, employeeid, email, officenumber} = response;
             const manager = new Manager(employeename, employeeid, email, officenumber)
             employeeObject.push(manager);
+            console.log(response.role);
 
             if (response.role === "Add an engineer") {
                 engineerProfile();

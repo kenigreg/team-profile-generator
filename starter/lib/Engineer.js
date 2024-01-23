@@ -2,7 +2,7 @@
 const Employee = require("./Employee");
 
 class Engineer extends Employee {
-    constructor(github) {
+    constructor(name, id, email, github) {
         if (!github || typeof github !== "string") { 
             throw new Error("You are missing the gitHUb username.");
         }
